@@ -4,15 +4,28 @@
   </div>
 
   <div class="panel-body">
-    <% @messages.each do |message| %>
-    <span class="label label-info"><%= message.name %></span>
-    <%= message.body %>
+      
+<% @messages.each do |message| %>
+
+    <span class="label label-info">
+<%= message.name %>
+</span>
+
+<%= message.body %>
+
     <br>
+
   <% end %>
+
  </div>
 </div>
 
-<%= form_for(@message) do |f| %>
+
+<% #部分テンプレートを読み込んでいる %>
+
+<%= render 'form' %>
+
+<%= form_for(@message, html: { class: "form-horizontal"}) do |f| %>
 
 
 <% if @message.errors.present? %>
