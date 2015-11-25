@@ -13,6 +13,12 @@
 
 <%= message.body %>
 
+        (
+<%= link_to "edit" , edit_message_path(message) %>
+
+<%= link_to "destroy" , message , method: :delete, data: { confirm: '削除してもよろしいですか？'} %>
+
+      )
     <br>
 
   <% end %>
@@ -20,46 +26,8 @@
  </div>
 </div>
 
-
 <% #部分テンプレートを読み込んでいる %>
 
 <%= render 'form' %>
 
-<%= form_for(@message, html: { class: "form-horizontal"}) do |f| %>
 
-
-<% if @message.errors.present? %>
-
-   <div class="alert alert-danger">
-
-<%= alert %>
-
-      <ul>
-
-<% @message.errors.full_messages.each do |full_message| %>
-
-          <li>
-
-<%= full_message %>
-
-          </li>
-
-<% end %>
-
-     </ul>
-   </div>
-
-<% end %>
-     
-  名前:
-
-  <%= f.text_field :name %>
-
-
-  内容：
-
-  <%= f.text_field :body %>
-  
-  <%= f.submit class: "btn btn-sm btn-primary" %>
-  
-<% end %>
