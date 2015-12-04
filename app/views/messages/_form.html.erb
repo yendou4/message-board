@@ -4,15 +4,15 @@
 
   <div class="alert alert-danger">
 
-<%= alert %>
+  <%= alert %>
 
      <ul>
          
-<% @message.errors.full_messages.each do |full_message| %>
+       <% @message.errors.full_messages.each do |full_message| %>
 
          <li>
 
-<%= full_message %>
+           <%= full_message %>
 
          </li>
 <% end %>
